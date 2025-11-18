@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <title>Lecturers</title>
 
-    <!-- LOAD BOOTSTRAP -->
-    <link rel="stylesheet" href="Assets/CSS/bootstrap.min.css">
+        <link rel="stylesheet" href="Assets/CSS/bootstrap.min.css">
 </head>
 
 <body class="container py-4">
@@ -23,15 +22,15 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
 
-                <li class="nav-item">
+                                <li class="nav-item">
                     <a class="nav-link" href="index.php?controller=lecturer&action=index">Lecturers</a>
                 </li>
 
-                <li class="nav-item">
+                                <li class="nav-item">
                     <a class="nav-link" href="index.php?controller=department&action=index">Departments</a>
                 </li>
 
-                <li class="nav-item">
+                                <li class="nav-item">
                     <a class="nav-link" href="index.php?controller=course&action=index">Courses</a>
                 </li>
 
@@ -43,12 +42,10 @@
 
 
 <?php
+// Variabel $page disetel ke 'index' secara default jika belum disetel
 $page = $page ?? 'index';
 ?>
 
-<!-- ===========================================================
-                    PAGE: INDEX
-=========================================================== -->
 <?php if ($page === 'index'): ?>
 
 <div class="d-flex justify-content-between align-items-center mb-4">
@@ -59,22 +56,22 @@ $page = $page ?? 'index';
     <div class="card-body">
 
         <h5 class="mb-3">
-            <?= isset($lecturer) ? "Edit Lecturer" : "Add Lecturer" ?>
+                        <?= isset($lecturer) ? "Edit Lecturer" : "Add Lecturer" ?>
         </h5>
 
-        <form action="index.php?controller=lecturer&action=<?= isset($lecturer) ? 'edit&id='.$lecturer['id'] : 'create' ?>" 
+                <form action="index.php?controller=lecturer&action=<?= isset($lecturer) ? 'edit&id='.$lecturer['id'] : 'create' ?>" 
               method="POST" 
               class="row g-3 mb-3 border-bottom pb-3">
 
-            <div class="col-md-3">
+                        <div class="col-md-3">
                 <label class="form-label">Name</label>
                 <input type="text" name="name" class="form-control"
                         placeholder="Nama"
-                        value="<?= isset($lecturer) ? htmlspecialchars($lecturer['name']) : '' ?>"
+                                                value="<?= isset($lecturer) ? htmlspecialchars($lecturer['name']) : '' ?>"
                         required>
             </div>
 
-            <div class="col-md-3">
+                        <div class="col-md-3">
                 <label class="form-label">NIDN</label>
                 <input type="text" name="nidn" class="form-control"
                         placeholder="NIDN"
@@ -82,7 +79,7 @@ $page = $page ?? 'index';
                         required>
             </div>
 
-            <div class="col-md-2">
+                        <div class="col-md-2">
                 <label class="form-label">Phone</label>
                 <input type="text" name="phone" class="form-control"
                         placeholder="Nomor Telepon"
@@ -90,7 +87,7 @@ $page = $page ?? 'index';
                         required>
             </div>
 
-            <div class="col-md-2">
+                        <div class="col-md-2">
                 <label class="form-label">Join Date</label>
                 <input type="date" name="join_date" class="form-control"
                         placeholder="Tanggal Masuk"
@@ -98,14 +95,14 @@ $page = $page ?? 'index';
                         required>
             </div>
 
-            <div class="col-md-2">
+                        <div class="col-md-2">
                 <label class="form-label">Department</label>
                 <select name="department_id" class="form-control" required>
                     <option value="">-- Select Department --</option>
 
-                    <?php foreach ($departments as $d): ?>
+                                        <?php foreach ($departments as $d): ?>
                         <option value="<?= $d['id'] ?>"
-                            <?= isset($lecturer) && $lecturer['department_id'] == $d['id'] ? 'selected' : '' ?>>
+                                                        <?= isset($lecturer) && $lecturer['department_id'] == $d['id'] ? 'selected' : '' ?>>
                             <?= htmlspecialchars($d['name']) ?>
                         </option>
                     <?php endforeach; ?>
@@ -113,12 +110,12 @@ $page = $page ?? 'index';
                 </select>
             </div>
 
-            <div class="col-md-2 d-flex align-items-end gap-2">
-                <button type="submit" class="btn <?= isset($lecturer) ? 'btn-success' : 'btn-primary' ?> w-100">
+                        <div class="col-md-2 d-flex align-items-end gap-2">
+                                <button type="submit" class="btn <?= isset($lecturer) ? 'btn-success' : 'btn-primary' ?> w-100">
                     <?= isset($lecturer) ? "Update" : "Add" ?>
                 </button>
 
-                <a href="index.php?controller=lecturer&action=index" class="btn btn-secondary w-100">
+                                <a href="index.php?controller=lecturer&action=index" class="btn btn-secondary w-100">
                     Clear
                 </a>
             </div>
@@ -142,10 +139,10 @@ $page = $page ?? 'index';
     </thead>
 
     <tbody>
-        <?php if (empty($lecturers)): ?>
+                <?php if (empty($lecturers)): ?>
             <tr><td colspan="7" class="text-center">No lecturers found</td></tr>
         <?php else: ?>
-            <?php foreach ($lecturers as $l): ?>
+                        <?php foreach ($lecturers as $l): ?>
                 <tr>
                     <td><?= $l['id'] ?></td>
                     <td><?= htmlspecialchars($l['name']) ?></td>
@@ -154,14 +151,14 @@ $page = $page ?? 'index';
                     <td><?= htmlspecialchars($l['join_date']) ?></td>
 
                     <td>
-                        <?= htmlspecialchars($l['department_name'] ?? '—') ?>
+                                                <?= htmlspecialchars($l['department_name'] ?? '—') ?>
                     </td>
 
                     <td>
-                        <a href="index.php?controller=lecturer&action=index&id=<?= $l['id'] ?>" 
+                                                <a href="index.php?controller=lecturer&action=index&id=<?= $l['id'] ?>" 
                            class="btn btn-sm btn-success">Edit</a>
 
-                        <a href="index.php?controller=lecturer&action=delete&id=<?= $l['id'] ?>"
+                                                <a href="index.php?controller=lecturer&action=delete&id=<?= $l['id'] ?>"
                            class="btn btn-sm btn-danger"
                            onclick="return confirm('Are you sure you want to delete this lecturer?')">
                            Delete

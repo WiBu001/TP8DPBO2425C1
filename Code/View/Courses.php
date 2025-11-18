@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <title>Courses</title>
 
-    <!-- Bootstrap -->
-    <link rel="stylesheet" href="Assets/CSS/bootstrap.min.css">
+        <link rel="stylesheet" href="Assets/CSS/bootstrap.min.css">
 </head>
 
 <body class="container py-4">
@@ -23,15 +22,15 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
 
-                <li class="nav-item">
+                                <li class="nav-item">
                     <a class="nav-link" href="index.php?controller=lecturer&action=index">Lecturers</a>
                 </li>
 
-                <li class="nav-item">
+                                <li class="nav-item">
                     <a class="nav-link" href="index.php?controller=department&action=index">Departments</a>
                 </li>
 
-                <li class="nav-item">
+                                <li class="nav-item">
                     <a class="nav-link" href="index.php?controller=course&action=index">Courses</a>
                 </li>
 
@@ -43,32 +42,30 @@
 
 
 <?php
+// Variabel $page disetel ke 'index' secara default jika belum disetel
 $page = $page ?? 'index';
 ?>
 
-<!-- =======================================
-        FORM ADD & EDIT COURSE
-======================================= -->
+---
+
 <div class="card p-3 mb-4">
     <h4 class="mb-3">
-        <?= isset($course) ? "Edit Course" : "Add Course" ?>
+                <?= isset($course) ? "Edit Course" : "Add Course" ?>
     </h4>
 
-    <form action="index.php?controller=course&action=<?= isset($course) ? 'edit&id=' . $course['id'] : 'create' ?>" method="POST" class="row g-3">
+        <form action="index.php?controller=course&action=<?= isset($course) ? 'edit&id=' . $course['id'] : 'create' ?>" method="POST" class="row g-3">
 
-        <!-- Course Name -->
-        <div class="col-md-4">
+                <div class="col-md-4">
             <label class="form-label">Course Name</label>
             <input type="text"
                 class="form-control"
                 name="course_name"
                 required
                 placeholder="Enter course name"
-                value="<?= isset($course) ? htmlspecialchars($course['course_name']) : '' ?>">
+                                value="<?= isset($course) ? htmlspecialchars($course['course_name']) : '' ?>">
         </div>
 
-        <!-- Credit -->
-        <div class="col-md-2">
+                <div class="col-md-2">
             <label class="form-label">Credit</label>
             <input type="number"
                 class="form-control"
@@ -76,40 +73,36 @@ $page = $page ?? 'index';
                 required
                 placeholder="SKS"
                 min="1"
-                value="<?= isset($course) ? htmlspecialchars($course['credit']) : '' ?>">
+                                value="<?= isset($course) ? htmlspecialchars($course['credit']) : '' ?>">
         </div>
 
-        <!-- Lecturer -->
-        <div class="col-md-4">
+                <div class="col-md-4">
             <label class="form-label">Lecturer</label>
             <select name="lecturer_id" class="form-select" required>
                 <option value="">-- Select Lecturer --</option>
 
-                <?php foreach ($lecturers as $lec): ?>
+                                <?php foreach ($lecturers as $lec): ?>
                     <option value="<?= $lec['id'] ?>"
-                        <?= isset($course) && $lec['id'] == $course['lecturer_id'] ? 'selected' : '' ?>>
+                                                <?= isset($course) && $lec['id'] == $course['lecturer_id'] ? 'selected' : '' ?>>
                         <?= htmlspecialchars($lec['name']) ?>
                     </option>
                 <?php endforeach; ?>
             </select>
         </div>
 
-        <!-- Buttons -->
-        <div class="col-md-2 d-flex align-items-end gap-2">
+                <div class="col-md-2 d-flex align-items-end gap-2">
             <button type="submit"
-                class="btn <?= isset($course) ? 'btn-success' : 'btn-primary' ?> w-100">
+                                class="btn <?= isset($course) ? 'btn-success' : 'btn-primary' ?> w-100">
                 <?= isset($course) ? "Update" : "Add" ?>
             </button>
 
-            <a href="index.php?controller=course&action=index" class="btn btn-secondary w-100">Clear</a>
+                        <a href="index.php?controller=course&action=index" class="btn btn-secondary w-100">Clear</a>
         </div>
 
     </form>
 </div>
 
-<!-- =======================================
-        COURSES LIST TABLE
-======================================= -->
+---
 
 <h3 class="mb-3">Courses List</h3>
 
@@ -126,22 +119,22 @@ $page = $page ?? 'index';
 
     <tbody>
 
-        <?php if (empty($courses)): ?>
+                <?php if (empty($courses)): ?>
             <tr><td colspan="5" class="text-center">No courses found</td></tr>
 
         <?php else: ?>
-            <?php foreach ($courses as $c): ?>
+                        <?php foreach ($courses as $c): ?>
                 <tr>
                     <td><?= $c['id'] ?></td>
                     <td><?= htmlspecialchars($c['course_name']) ?></td>
                     <td><?= $c['credit'] ?></td>
-                    <td><?= htmlspecialchars($c['lecturer_name'] ?? 'N/A') ?></td>
+                                        <td><?= htmlspecialchars($c['lecturer_name'] ?? 'N/A') ?></td>
 
                     <td>
-                        <a href="index.php?controller=course&action=index&id=<?= $c['id'] ?>" 
+                                                <a href="index.php?controller=course&action=index&id=<?= $c['id'] ?>" 
                            class="btn btn-sm btn-success">Edit</a>
 
-                        <a href="index.php?controller=course&action=delete&id=<?= $c['id'] ?>"
+                                                <a href="index.php?controller=course&action=delete&id=<?= $c['id'] ?>"
                            class="btn btn-sm btn-danger"
                            onclick="return confirm('Are you sure you want to delete this lecturer?')">
                            Delete
@@ -154,7 +147,6 @@ $page = $page ?? 'index';
     </tbody>
 </table>
 
-<!-- JS -->
 <script src="Assets/JS/bootstrap.bundle.min.js"></script>
 <script src="Assets/JS/jquery.min.js"></script>
 
