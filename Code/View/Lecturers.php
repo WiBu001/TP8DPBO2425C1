@@ -69,35 +69,39 @@ $page = $page ?? 'index';
             <div class="col-md-3">
                 <label class="form-label">Name</label>
                 <input type="text" name="name" class="form-control"
-                       value="<?= isset($lecturer) ? htmlspecialchars($lecturer['name']) : '' ?>"
-                       required>
+                        placeholder="Nama"
+                        value="<?= isset($lecturer) ? htmlspecialchars($lecturer['name']) : '' ?>"
+                        required>
             </div>
 
             <div class="col-md-3">
                 <label class="form-label">NIDN</label>
                 <input type="text" name="nidn" class="form-control"
-                       value="<?= isset($lecturer) ? htmlspecialchars($lecturer['nidn']) : '' ?>"
-                       required>
+                        placeholder="NIDN"
+                        value="<?= isset($lecturer) ? htmlspecialchars($lecturer['nidn']) : '' ?>"
+                        required>
             </div>
 
             <div class="col-md-2">
                 <label class="form-label">Phone</label>
                 <input type="text" name="phone" class="form-control"
-                       value="<?= isset($lecturer) ? htmlspecialchars($lecturer['phone']) : '' ?>"
-                       required>
+                        placeholder="Nomor Telepon"
+                        value="<?= isset($lecturer) ? htmlspecialchars($lecturer['phone']) : '' ?>"
+                        required>
             </div>
 
             <div class="col-md-2">
                 <label class="form-label">Join Date</label>
                 <input type="date" name="join_date" class="form-control"
-                       value="<?= isset($lecturer) ? htmlspecialchars($lecturer['join_date']) : '' ?>"
-                       required>
+                        placeholder="Tanggal Masuk"
+                        value="<?= isset($lecturer) ? htmlspecialchars($lecturer['join_date']) : '' ?>"
+                        required>
             </div>
 
             <div class="col-md-2">
                 <label class="form-label">Department</label>
                 <select name="department_id" class="form-control" required>
-                    <option value="">-- Select --</option>
+                    <option value="">-- Select Department --</option>
 
                     <?php foreach ($departments as $d): ?>
                         <option value="<?= $d['id'] ?>"

@@ -74,6 +74,7 @@ $page = $page ?? 'index';
                 class="form-control"
                 name="credit"
                 required
+                placeholder="SKS"
                 min="1"
                 value="<?= isset($course) ? htmlspecialchars($course['credit']) : '' ?>">
         </div>
