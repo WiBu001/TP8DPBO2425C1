@@ -46,8 +46,7 @@
 $page = $page ?? 'index';
 ?>
 
----
-
+<h3 class="mb-3">Courses List</h3>
 <div class="card p-3 mb-4">
     <h4 class="mb-3">
                 <?= isset($course) ? "Edit Course" : "Add Course" ?>
@@ -102,9 +101,6 @@ $page = $page ?? 'index';
     </form>
 </div>
 
----
-
-<h3 class="mb-3">Courses List</h3>
 
 <table class="table table-bordered table-striped">
     <thead class="table-dark">

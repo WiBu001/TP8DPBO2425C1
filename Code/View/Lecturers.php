@@ -112,8 +112,8 @@ $page = $page ?? 'index';
 
                         <div class="col-md-2 d-flex align-items-end gap-2">
                                 <button type="submit" class="btn <?= isset($lecturer) ? 'btn-success' : 'btn-primary' ?> w-100">
-                    <?= isset($lecturer) ? "Update" : "Add" ?>
-                </button>
+                            <?= isset($lecturer) ? "Update" : "Add" ?>
+                        </button>
 
                                 <a href="index.php?controller=lecturer&action=index" class="btn btn-secondary w-100">
                     Clear

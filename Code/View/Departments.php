@@ -69,10 +69,8 @@ $page = $page ?? 'index';
         </div>
 
                 <div class="col-md-2 d-flex align-items-end">
-            <button type="submit" 
-                                class="btn <?= isset($department) ? 'btn-success' : 'btn-primary' ?> w-100">
-                <?= isset($department) ? "Update" : "Add" ?>
-            </button>
+                    <button type="submit" class="btn <?= isset($department) ? 'btn-success' : 'btn-primary' ?> w-100"> <?= isset($department) ? "Update" : "Add" ?>
+                    </button>
         </div>
 
                 <div class="col-md-2 d-flex align-items-end">
